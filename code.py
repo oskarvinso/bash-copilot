@@ -19,9 +19,10 @@ def cleanargs(args):
 
 
 def getinstruction():
-    args=cleanargs(sys.argv)
-    command=f"write a bash script to {args} and on ubuntu 22"
-    ba(f"echo '{timestamp} {command}' >> ~/cbot.log")
+    args=joinall(sys.argv)
+    args=args.replace(cleanargs(args), '')
+    command=(f"write the code to {args} and add nice comments">
+    ba(f"echo '{timestamp} {command}' >> ~/cbot>
     return(executeinai(command))
 
 

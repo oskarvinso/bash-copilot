@@ -7,7 +7,7 @@ from mysecret import apikey
 def joinall(words:list):
     output = ''
     for word in words:
-        if word != sh('pwd').read():
+        if word != ba('pwd').read():
             output = output + " " + str(word)
     return output.replace("climod.py", "")
 timestamp=datetime.now()
@@ -15,7 +15,7 @@ timestamp=datetime.now()
 def getinstruction():
     args=joinall( sys.argv)
     args=args.replace('/data/data/com.termux/files/home/chatgpt/services/', '')
-    command=f'write a bash script that {args} on ubuntu | bash'
+    command=f'write a bash script that {args} on ubuntu'
     ba(f"echo '{timestamp} {command}' >> ~/cbot.log")
     return(executeinai(command))
 def executeinai(comand):
@@ -35,4 +35,4 @@ def executeinai(comand):
     ba(f"echo {timestamp}{ans} >> ~/cbot.log")
     return ans
 
-print(f" this is the output: {getinstruction()}")
+getinstruction()

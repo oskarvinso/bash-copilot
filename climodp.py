@@ -1,6 +1,6 @@
 import openai
 import sys
-from os import popen as sh
+from os import popen as ba
 from datetime import datetime
 from mysecret import apikey
 
@@ -16,7 +16,7 @@ def getinstruction():
     args=joinall( sys.argv)
     args=args.replace('/data/data/com.termux/files/home/chatgpt/services/', '')
     command=f'write a bash script that {args} on ubuntu | bash'
-    sh(f"echo '{timestamp} {command}' >> ~/cbot.log")
+    ba(f"echo '{timestamp} {command}' >> ~/cbot.log")
     return(executeinai(command))
 def executeinai(comand):
     openai.api_key = apikey
@@ -32,7 +32,7 @@ def executeinai(comand):
     possible= ianswer.choices[0]
     ans=possible["text"]
     print(ans)
-    sh(f"echo {timestamp}{ans} >> ~/cbot.log")
+    ba(f"echo {timestamp}{ans} >> ~/cbot.log")
     return ans
 
-print(getinstruction())
+print(f" this is the output: {getinstruction()}")

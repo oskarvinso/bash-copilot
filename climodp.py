@@ -2,9 +2,7 @@ import openai
 import sys
 from os import popen as sh
 from datetime import datetime
-
-
-apikey=""
+from mysecret import apikey
 
 def joinall(words:list):
     output = ''

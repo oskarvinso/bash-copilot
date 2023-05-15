@@ -6,7 +6,7 @@ from models import GenericResponse
 from mysecret import apikey
 from machinelearning import aiselectfromlist, semanticsearch, summarizer
 from lists import bashcommands
-from gptautogui import gpt4ask
+from gptautogui import get_window_titles, gpt4ask
 
 timestamp=datetime.now()
 
@@ -65,21 +65,7 @@ def executeinai(comand) -> GenericResponse:
     return GenericResponse(data=ans, success=worked)
 
 def gpt4autoguimethod(comand):
-    # Define the website URL to check
-    url = "https://chat.openai.com/"
-    # Define the browser command to use
-    browser_cmd = "google-chrome"
-    # Open the website in a new browser window
-    subprocess.Popen([browser_cmd, url])
-    # Wait for the website to load
-    time.sleep(5)
-    # Check if the website is focused
-    is_focused = subprocess.check_output(["xdotool", "getwindowfocus", "getwindowname"]).decode("utf-8").strip().endswith(url)
-    # Print the result
-    if is_focused:
-        return GenericResponse(data=gpt4ask(comand), success=True)
-    else:
-        return GenericResponse(data="", message="nos se puede conectar a chat gpt ahora", success=False)
+    return GenericResponse(data=gpt4ask(comand), success=True)
 
 
 def googlesearch(comand):

@@ -13,9 +13,9 @@ def gpt4ask(prompt):
 
 def write_on_chatgpt(message):
     # Obtener la posición del cursor donde queremos escribir
-    x, y = pyautogui.locateCenterOnScreen('chatgpt_cursor.png')
+    #x, y = pyautogui.locateCenterOnScreen('chatgpt_cursor.png')
     # Hacer clic en la posición del cursor para enfocar el campo de entrada
-    pyautogui.click(x, y)
+    #pyautogui.click(x, y)
     # Escribir el mensaje en el campo de entrada
     pyautogui.typewrite(message)
     pyautogui.press('enter')
@@ -27,10 +27,10 @@ def get_chatgpt_response():
     time.sleep(5)
     
     # Obtener la posición del cursor donde aparece la respuesta
-    x, y = pyautogui.locateCenterOnScreen('chatgpt_response.png')
+    #x, y = pyautogui.locateCenterOnScreen('chatgpt_response.png')
     
     # Hacer clic en la posición del cursor para copiar la respuesta
-    pyautogui.click(x, y, button='right')
+    #pyautogui.click(x, y, button='right')
     pyautogui.press('down')
     pyautogui.press('enter')
     
